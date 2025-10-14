@@ -1,0 +1,9 @@
+flask
+pymongo
+python-dotenv
+reportlab
+langchain
+openai
+requests
+gunicorn
+pydantic
