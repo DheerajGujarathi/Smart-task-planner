@@ -3,6 +3,7 @@ const axios = require('axios');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const { router: authRouter, initAuthRoutes } = require('./routes/auth');
 require('dotenv').config();
 
 const AI_ENGINE_URL = process.env.AI_ENGINE_URL || 'http://localhost:5001';
@@ -15,19 +16,27 @@ app.use(bodyParser.json());
 
 let dbClient;
 let plansCollection;
+let db;
 
 async function initDb(){
   try {
     dbClient = new MongoClient(MONGO_URI);
     await dbClient.connect();
-    const db = dbClient.db('smartplanner');
+    db = dbClient.db('smartplanner');
     plansCollection = db.collection('plans');
+    
+    // Initialize authentication routes with database
+    initAuthRoutes(db);
+    
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection failed:', error.message);
     throw error;
   }
 }
+
+// Authentication routes
+app.use('/api/auth', authRouter);
 
 app.post('/api/generate', async (req, res) => {
   try{

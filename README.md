@@ -38,11 +38,12 @@
   - 🎨 **Creative**: Idea-first, flexible, inspiration-driven planning
 
 ### 🌈 **Beautiful User Experience**
-- **Dual Theme System**: Elegant dark/light themes with smooth transitions
+- **Dual Theme System**: Elegant dark/light themes with smooth transitions (available on landing page and planner)
 - **Modern Design**: Purple & peach color palette with glassmorphism effects
 - **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
 - **Theme Persistence**: Remembers your theme preference across sessions
 - **Animated UI**: Smooth transitions, hover effects, and micro-interactions
+- **Modular Architecture**: Clean, maintainable component structure for easy updates
 
 ### 🎯 **Comprehensive Goal Categories**
 The AI intelligently plans for:
@@ -57,18 +58,33 @@ The AI intelligently plans for:
 9. **🎨 Creative Projects** - Writing, art, music, content creation
 
 ### 📊 **Advanced Planning Features**
-- **Interactive Gantt Charts**: Visual timeline representation using Mermaid.js
+- **Interactive Gantt Charts**: Visual timeline representation with color-coded priorities
+- **Smart Task Descriptions**: Automatically generated 3-4 line contextual descriptions for each task
+- **Task Priority System**: Intelligent priority assignment (High/Medium/Low) with color indicators
 - **Task Dependencies**: Understand task relationships and sequences
 - **Timeline Optimization**: AI suggests ideal timeframes for goal completion
-- **Progress Tracking**: Monitor your plan execution
-- **PDF Export**: Professional plan reports for offline reference
+- **Progress Tracking**: Monitor your plan execution with completion percentages
+- **PDF Export**: Professional plan reports for offline reference and printing
 - **Plan History**: MongoDB-backed storage for all your plans
+- **Project Management**: View in-progress and completed projects in sidebar
+- **Delete Functionality**: Remove unwanted projects with confirmation dialog
 
 ### 💡 **AI Insights & Optimization**
 - **Context-Specific Advice**: Tailored recommendations for each goal category
 - **Timeline Recommendations**: "Habit formation takes 21-66 days - consider extending your timeline"
 - **Balance Analysis**: "Add more practice time - applying knowledge is crucial for retention"
-- **Execution Tips**: "Great action-oriented approach - execution beats perfection"  
+- **Execution Tips**: "Great action-oriented approach - execution beats perfection"
+- **Smart Task Breakdown**: Automatically generates actionable, contextual task descriptions
+- **Priority Intelligence**: Assigns task priorities based on position and importance
+
+### 🎯 **Enhanced Planner Features**
+- **4-Step Wizard**: Goal Input → Timeline Selection → Review → Results
+- **Multiple Timeline Modes**: Choose between number of days or specific due date
+- **Persona-Based Planning**: Customize approach based on your work style
+- **Real-Time Progress**: Track completion with visual progress indicators
+- **Projects Sidebar**: Quick access to all your plans with stats summary
+- **Theme Consistency**: Unified theme system across entire application
+- **Task Checklist**: Interactive task completion with descriptions and metadata  
 
 ---
 
@@ -110,9 +126,9 @@ The AI intelligently plans for:
 ### **Frontend**
 - **React 18** - Modern UI library with hooks
 - **Vite** - Lightning-fast build tool and dev server
-- **CSS3** - Custom properties, glassmorphism, animations
+- **CSS3** - Custom properties, glassmorphism, animations, modular CSS architecture
 - **Axios** - HTTP client for API communication
-- **Mermaid.js** - Gantt chart visualization
+- **Component Architecture** - Modular, maintainable component structure with separated concerns
 
 ### **Backend**
 - **Node.js 18+** - JavaScript runtime
@@ -223,11 +239,36 @@ Smart-planner/
 │   │   ├── components/          # React components
 │   │   │   ├── ChatInterface.jsx       # Main chat UI with conversational AI
 │   │   │   ├── Dashboard.jsx           # Statistics and overview
+│   │   │   ├── LandingPage.jsx         # Landing page with theme toggle
 │   │   │   ├── Navigation.jsx          # Header and navigation
 │   │   │   ├── PlanVisualization.jsx   # Gantt charts and timelines
-│   │   │   └── ThemeToggle.jsx         # Dark/Light theme switcher
-│   │   ├── styles/              # CSS stylesheets
-│   │   │   ├── globals.css             # Theme system & variables
+│   │   │   ├── ThemeToggle.jsx         # Dark/Light theme switcher
+│   │   │   └── EnhancedPlanner/        # Modular planner component
+│   │   │       ├── index.jsx                  # Main planner component
+│   │   │       ├── components/                # Sub-components
+│   │   │       │   ├── Header.jsx            # Header with theme toggle
+│   │   │       │   ├── GoalInput.jsx         # Step 1: Goal input
+│   │   │       │   ├── TimelineSelection.jsx # Step 2: Timeline config
+│   │   │       │   ├── PlanReview.jsx        # Step 3: Review
+│   │   │       │   ├── PlanResults.jsx       # Step 4: Results display
+│   │   │       │   ├── GanttChart.jsx        # Gantt visualization
+│   │   │       │   ├── TaskChecklist.jsx     # Task list with descriptions
+│   │   │       │   └── ProjectsSidebar.jsx   # Projects summary
+│   │   │       ├── utils/                     # Utility functions
+│   │   │       │   ├── taskDescriptions.js   # Task description generator
+│   │   │       │   ├── priorities.js         # Priority logic
+│   │   │       │   └── pdfExport.js          # PDF export utility
+│   │   │       ├── styles/                    # Modular CSS files
+│   │   │       │   ├── index.css             # Main styles + imports
+│   │   │       │   ├── Header.css            # Header styles
+│   │   │       │   ├── Steps.css             # Step wizard styles
+│   │   │       │   ├── GanttChart.css        # Gantt chart styles
+│   │   │       │   ├── TaskChecklist.css     # Checklist styles
+│   │   │       │   └── Sidebar.css           # Sidebar styles
+│   │   │       └── README.md                  # Component documentation
+│   │   ├── styles/              # Global CSS stylesheets
+│   │   │   ├── globals.css             # Theme system & CSS variables
+│   │   │   ├── landing.css             # Landing page styles
 │   │   │   ├── chat.css                # Chat interface styles
 │   │   │   ├── dashboard.css           # Dashboard styles
 │   │   │   ├── navigation.css          # Navigation styles
@@ -260,20 +301,54 @@ Smart-planner/
 
 ## 💻 Usage Examples
 
-### **Example 1: Fitness Goal**
+### **Example 1: Fitness Goal with Enhanced Features**
 ```
 User: "I want to start a fitness transformation journey"
 
-AI Response:
+Step 1: Enter goal and select persona (Startup/Corporate/Creative)
+Step 2: Choose timeline (14 days or specific due date)
+Step 3: Review your inputs
+Step 4: AI generates comprehensive plan
+
 ✅ Generated 5-step plan over 14 days
 1. Fitness Assessment & Goal Setting (1 day)
-2. Create Workout & Nutrition Plan (2 days)
-3. Execute Training Program (7 days)
-4. Track Progress & Measurements (2 days)
-5. Optimize & Adjust Routine (2 days)
+   📝 Begin with a thorough fitness evaluation to establish your current 
+   capabilities and define specific, measurable transformation goals...
+   Priority: High 🔴
 
-💡 Insight: "Great timeline choice! This gives enough time to build sustainable fitness habits."
+2. Create Workout & Nutrition Plan (2 days)
+   📝 Develop a comprehensive workout routine tailored to your goals and 
+   design a sustainable nutrition strategy...
+   Priority: High 🔴
+
+3. Execute Training Program (7 days)
+   📝 Commit to your planned workout sessions and follow your nutrition 
+   guidelines consistently...
+   Priority: Medium 🟣
+
+4. Track Progress & Measurements (2 days)
+   📝 Monitor your progress through regular check-ins, measurements, and 
+   performance tracking...
+   Priority: Low 💜
+
+5. Optimize & Adjust Routine (2 days)
+   📝 Review your results and refine your approach based on what's working 
+   and what needs adjustment...
+   Priority: Low �
+
+📊 Visual Gantt Chart with color-coded timeline
+📄 Download PDF report
+�💡 AI Insight: "Great timeline choice! This gives enough time to build sustainable fitness habits."
+✓ Track completion with interactive checklist
 ```
+
+### **Example 2: Using Advanced Features**
+- **Gantt Chart**: Visual timeline with color-coded priority bars
+- **Task Descriptions**: Each task includes 3-4 lines of actionable guidance
+- **PDF Export**: Click "Download PDF Report" for professional printable version
+- **Projects Sidebar**: View all your plans with completion stats
+- **Delete Projects**: Hover over any project and click 🗑️ to remove
+- **Theme Toggle**: Switch between dark/light themes instantly
 
 ### **Example 2: Habit Building**
 ```
@@ -361,11 +436,25 @@ Use these prompts to test the AI's category detection:
 - 💼 **Business**: "I want to launch a startup"
 - 🎨 **Creative**: "Help me write my first book"
 
+### **Test New Features**
+- **Gantt Chart**: Generate a plan and view the color-coded timeline
+- **Task Descriptions**: Check each task for 3-4 line contextual guidance
+- **PDF Export**: Click "Download PDF Report" button in results
+- **Priority System**: Observe High (red), Medium (pink), Low (purple) badges
+- **Project Delete**: Hover over a project in sidebar and click 🗑️
+- **Theme Toggle**: Test dark/light theme on landing page and planner
+- **Progress Tracking**: Complete tasks and watch progress percentage update
+
 ### **Test Personas**
 Select different personas and compare the planning approaches:
 - **Startup**: Fast execution, minimal planning
 - **Corporate**: Structured, methodical approach
 - **Creative**: Inspiration-focused, flexible
+
+### **Test Timeline Modes**
+- **Number of Days**: Set 7, 14, 30, or custom days
+- **Due Date**: Select a specific deadline date
+- **Validation**: Ensure past dates are handled correctly
 
 ---
 
@@ -376,15 +465,58 @@ Select different personas and compare the planning approaches:
 - **Plan Generation**: < 2s
 - **Theme Switch**: Instant (< 50ms)
 - **Bundle Size**: ~150KB (gzipped)
+- **Component Load**: Modular lazy-loading for optimal performance
+- **PDF Generation**: < 3s for complete plan export
+
+---
+
+## 🎯 What's New in Latest Version
+
+### **Version 3.0.0** (October 2025)
+
+#### 🏗️ **Complete Architectural Refactoring**
+- **Modular Component Structure**: Refactored from 600+ line monolithic component to 17 focused modules
+- **Separated Concerns**: Clean separation of components, utilities, and styles
+- **8 Specialized Components**: Header, GoalInput, TimelineSelection, PlanReview, PlanResults, GanttChart, TaskChecklist, ProjectsSidebar
+- **3 Utility Modules**: Task descriptions, priorities, PDF export
+- **6 CSS Modules**: Organized styles by functionality for easy maintenance
+
+#### ✨ **New Features**
+- **Smart Task Descriptions**: Automatically generates 3-4 line contextual descriptions for each task with 8 pattern categories
+- **Enhanced Gantt Chart**: Color-coded timeline visualization with priority indicators
+- **Priority System**: Intelligent task priority assignment (High/Medium/Low) with visual badges
+- **PDF Export**: Professional plan reports with complete task details
+- **Project Management**: Delete projects with confirmation dialog
+- **Theme on Landing**: Theme toggle now available on landing page
+- **Projects Sidebar**: Enhanced sidebar with in-progress and completed project lists
+
+#### 🎨 **UI/UX Improvements**
+- **Better Organization**: Easy-to-navigate file structure for developers
+- **Consistent Theming**: Unified dark/light theme across all components
+- **Responsive Gantt**: Mobile-optimized timeline visualization
+- **Hover Effects**: Smooth delete button animations
+- **Progress Indicators**: Visual feedback for task completion
+
+#### 🔧 **Developer Experience**
+- **Component Documentation**: Comprehensive README for EnhancedPlanner structure
+- **Reusable Utilities**: Shared functions across components
+- **CSS Variables**: Centralized theme management
+- **Single Responsibility**: Each component handles one specific concern
+- **Easy Testing**: Isolated components for unit testing
 
 ---
 
 ## 🚀 Future Enhancements
 
 ### **Phase 1** (In Progress)
+- [x] Enhanced Gantt chart visualization with priorities
+- [x] Task descriptions with contextual guidance
+- [x] PDF export functionality
+- [x] Project delete functionality
+- [x] Modular component architecture
 - [ ] User authentication & profiles
 - [ ] Plan templates library
-- [ ] Progress tracking dashboard
+- [ ] Advanced progress tracking dashboard
 - [ ] Mobile app (React Native)
 
 ### **Phase 2** (Planned)
@@ -393,13 +525,17 @@ Select different personas and compare the planning approaches:
 - [ ] Collaborative planning
 - [ ] AI coaching & reminders
 - [ ] Analytics & insights dashboard
+- [ ] Task comments and notes
+- [ ] Recurring tasks and habits
 
 ### **Phase 3** (Roadmap)
 - [ ] Voice input support
 - [ ] Multi-language support
 - [ ] Habit streak tracking
 - [ ] Gamification features
-- [ ] Integration with productivity tools
+- [ ] Integration with productivity tools (Notion, Trello, etc.)
+- [ ] Email notifications and reminders
+- [ ] Team collaboration features
 
 ---
 
