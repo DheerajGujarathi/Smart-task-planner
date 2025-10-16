@@ -3,7 +3,7 @@
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-DheerajGujarathi-blue?style=for-the-badge&logo=github)](https://github.com/DheerajGujarathi/Smart-planner)
-[![Demo Video](https://img.shields.io/badge/Demo-Watch%20Video-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1NPvLNoquQMU91d_dw0DnACFJ_PvNmidH/view?usp=drive_link)
+[![Demo Video](https://img.shields.io/badge/Demo-Watch%20Video-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/18TiT9bzKswdnZ7X-lLTh8eb06Fpe2ACi/view?usp=sharing)
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![Python](https://img.shields.io/badge/Python-Flask-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
@@ -11,7 +11,7 @@
 
 **Transform vague life goals into intelligent, actionable plans with AI-powered insights and beautiful visualizations**
 
-[📺 Watch Demo](https://drive.google.com/file/d/1NPvLNoquQMU91d_dw0DnACFJ_PvNmidH/view?usp=drive_link) • [🚀 Quick Start](#-quick-start) • [✨ Features](#-key-features) • [🛠️ Tech Stack](#️-tech-stack)
+[📺 Watch Demo](https://drive.google.com/file/d/18TiT9bzKswdnZ7X-lLTh8eb06Fpe2ACi/view?usp=sharing) • [🚀 Quick Start](#-quick-start) • [✨ Features](#-key-features) • [🛠️ Tech Stack](#️-tech-stack)
 
 </div>
 
@@ -22,7 +22,7 @@
 **Smart Task Planner** is a full-stack AI-powered application that revolutionizes personal and professional planning. It uses intelligent context-awareness to understand your goals across **9+ life categories** and generates personalized, actionable plans with smart timelines, task breakdowns, and AI-driven insights.
 
 ### 🎥 Demo Video
-**[▶️ Watch the Full Demo](https://drive.google.com/file/d/1NPvLNoquQMU91d_dw0DnACFJ_PvNmidH/view?usp=drive_link)**
+**[▶️ Watch the Full Demo](https://drive.google.com/file/d/18TiT9bzKswdnZ7X-lLTh8eb06Fpe2ACi/view?usp=sharing)**
 
 ---
 
@@ -579,7 +579,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/DheerajGujarathi/Smart-planner/issues)
 - **Email**: dheerajgujarathi5@gmail.com
-- **Demo Video**: [Watch on Google Drive](https://drive.google.com/file/d/1NPvLNoquQMU91d_dw0DnACFJ_PvNmidH/view?usp=drive_link)
+- **Demo Video**: [Watch on Google Drive](https://drive.google.com/file/d/18TiT9bzKswdnZ7X-lLTh8eb06Fpe2ACi/view?usp=sharing)
 
 ---
 
